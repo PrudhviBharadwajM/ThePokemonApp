@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs') %>
+<div class="jumbotron">
+    <h2 class="lead tradelead">Manage trade</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Your pokemon</th>
+                <th>Trader's Pokemon</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= poke.pokemon %></td>
+                <td><%= poke.offerName %></td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <form action="/trades/<%=poke._id %>/accept" method="GET">
+                            <button class="btn btn-success">Accept</button> &nbsp;
+                        </form>
+                        <form action="/trades/<%=poke._id %>/reject" method="GET">
+                            <button class="btn btn-danger">Reject</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<%- include('../partials/footer.ejs') %>

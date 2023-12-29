@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+<br>
+<br>
+<br>
+<br>
+    <div class="container content">
+        <form action='/trades/<%= pokemon._id%>?_method=PUT' method='POST'>
+            <div class="form-group row">
+                <label for="category" class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-10">
+                    <select required id="category" name="category" class="form-control">
+                        <% for(var i=0; i<values.length; i++) { %>
+                            <option value="<%= values[i].value %>" <% if (values[i].value === pokemon.category) { %>selected<% } %>><%= values[i].label %></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pokemon" class="col-sm-2 col-form-label">Pokemon Name</label>
+                <div class="col-sm-10">
+                    <input type="text" required class="form-control" value="<%= pokemon.pokemon%>" id="pokemon" name="pokemon" placeholder="Name of the pokemon">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="content" class="col-sm-2 col-form-label">Pokemon Information</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" required id="content" name="content" rows="3"><%= pokemon.content%></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-sm-3">
+                    <button class="btn btn-warning" type="submit">Save</button>
+                    <a href="/trades" class="btn btn-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials/footer.ejs') %>

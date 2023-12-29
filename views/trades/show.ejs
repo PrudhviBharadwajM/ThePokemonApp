@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+    <br />
+    <br>
+    <br>
+    <div class="container-fluid">
+        <!-- <img src="./assets/mewtwo.png" class="img-responsive tradepageimg" alt="mewtwo" /> -->
+        <img src="<%= poke.image %>" alt="<%= poke.pokemon %>" class="img-responsive tradepageimg" />
+        <h1><%= poke.pokemon %></h1>
+        <br />
+        <h3><%= poke.category %></h3>
+
+        <p class="lead"><%= poke.content %></p>
+        <%if(user == poke.author._id) { %>
+            <form>
+              <button type="submit" formmethod="get" class="btn btn-info" formaction="/trades/<%=poke._id%>/edit">Edit</button> 
+              <a href="/trades" class="btn btn-warning">Cancel</a> 
+              <button type="submit" formmethod="post" class="btn btn-danger" formaction="/trades/<%=poke._id%>?_method=DELETE">Delete</button>
+            </form>
+          <%}%>
+          <%if(!(user == poke.author._id) && poke.status === "Available"){%>
+            <form style="display: inline-block;">
+                <button type="submit" formmethod="get" class="btn btn-info" formaction="/trades/<%=poke._id%>/trade">Trade</button>
+            </form>
+           <%if(poke.watchlist === false){%>
+            <form style="display: inline-block;">
+                <button type="submit" formmethod="post" class="btn btn-success" formaction="/trades/<%=poke._id%>/watchlist">Add to Watchlist</button>
+                <input type="hidden" id="Name" name="Name" value="<%= poke.pokemon%>"/>
+            </form>
+            <%}else{%>
+            <form style="display: inline-block;">
+                <button type="submit" formmethod="post" class="btn btn-success" formaction="/trades/<%=poke._id%>/deletesaved?_method=delete">Remove from Watchlist</button>
+            </form>
+            <%}%>
+          <%}%>
+          <br>
+    </div>
+    <br>
+    <br>
+    <%- include('../partials/footer') %>

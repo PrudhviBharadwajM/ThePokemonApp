@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+<br>
+<br>
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <form action="/users" method="POST" class="p-5 border rounded">
+      <div class="text-center mb-4">
+        <img class="img-brand" src="/images/pikachu.gif" alt="logo">
+      </div>
+      <h1 class="h3 mb-3 fw-normal">Create an account</h1>
+      <div class="form-floating mb-4">
+        <p class="lead"><label class="form-label" for="firstName">First Name</label></p>
+        <input type="text" required id="firstName" name="firstName" placeholder="your first name..." class="form-control form-control-lg" />
+      </div>
+      <div class="form-floating mb-4">
+        <p class="lead"><label class="form-label" for="lastName">Last Name</label></p>
+        <input type="text" required id="lastName" name="lastName" placeholder="your last name..." class="form-control form-control-lg" />
+      </div>
+      <div class="form-floating mb-4">
+        <p class="lead"><label class="form-label" for="email">Email Address</label></p>
+        <input type="email" required id="email" placeholder="your email address..." name="email" class="form-control form-control-lg" />
+      </div>
+      <div class="form-floating mb-4">
+        <p class="lead"><label class="form-label" for="password">Password</label></p>
+        <input type="password" required id="password" minlength="8" maxlength="64" name="password" class="form-control form-control-lg" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Sign Up</button>
+    </form>
+  </div>
+<%- include('../partials/footer.ejs') %>

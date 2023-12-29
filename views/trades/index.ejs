@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs') %>
+
+  <div class="jumbotron">
+    <h2 class="lead tradelead">Select a category from below to explore more.</h2>
+    <% if(trades.length >0) {%>
+      <h5>Regular Pokemons:</h5>
+      <div class="container-fluid">
+        <div class="row">
+          <% trades.forEach(function(trade) { if (trade.category==='Regular' ) { %>
+          <div class="trade-item">
+            <div>
+              <img src="<%= trade.image %>" alt="<%= trade.pokemon %>" class="pokemons" />
+              &nbsp; &nbsp;
+            </div>
+            <div>
+              <p class="lead"><a href="/trades/<%=trade._id %>"><%= trade.pokemon %></a></p>
+            </div>
+          </div>
+          <% } }); %>
+        </div>
+      </div>
+      <br>
+
+      <h5>Legendary Pokemons:</h5>
+      <div class="container-fluid">
+        <div class="row">
+          <% trades.forEach(function(trade) { if (trade.category==='Legendary' ) { %>
+          <div class="trade-item">
+            <div>
+              <img src="<%= trade.image %>" alt="<%= trade.pokemon %>" class="pokemons" />
+              &nbsp; &nbsp;
+            </div>
+            <div>
+              <p class="lead"><a href="/trades/<%=trade._id %>"><%= trade.pokemon %></a></p>
+            </div>
+          </div>
+          <% } }); %>
+        </div>
+      </div>
+      <% } else { %>
+        <p class="lead">There are no pokemons to display.</p>
+       <%} %>
+  </div>
+  <%- include('../partials/footer.ejs') %>

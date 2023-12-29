@@ -1,0 +1,94 @@
+<%- include('../partials/header.ejs') %>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome back! <%= user.firstName +" "+ user.lastName %></h1>
+      <p class="lead">This is your space to create and trade pokemons of your choice</p>
+      <p class="lead"><strong>Offers you created/ received:</strong></p>
+      <% if(trades.length > 0){ %>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% trades.forEach(function(pokemon) { %>
+              <% if(pokemon.status === 'Offer pending'){%>
+                <tr>
+                  <td><a href="/trades/<%=pokemon._id %>"><%= pokemon.pokemon %></a></td>
+                  <td><%= pokemon.category %></td>
+                  <td><%= pokemon.status %></td>
+                  <td>
+                    <% if(pokemon.status === 'Offer pending') {%>
+                      <form action="/trades/<%=pokemon._id %>/managepokemon" method="GET">
+                        <button class="btn btn-warning">Manage</button>
+                      </form>
+                    <%}%>
+                  </td>
+                </tr>
+              <%}%>
+            <% });%>
+          </tbody>
+        </table>
+      <% } else { %>
+        <p>You do not have any offers at this moment</p>
+      <% } %>
+      
+      <hr class="my-4">
+      <p class="lead"><strong>Pokemons you added to watchlist:</strong></p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Pokemon Name</th>
+            <th>Type</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(savedByUser.length){ %>
+            <% let pokemons = new Array(); %>
+            <% savedByUser.forEach(poke => { %>
+              <% pokemons.push(poke.pokemonName); %>
+            <% }); %>
+            <% savedPokemon.forEach(item => { %>
+              <% if(pokemons.includes(item.pokemon)) { %>
+                <tr>
+                  <td>
+                    <p class="lead"><%= item.pokemon %></p>
+                  </td>
+                  <td>
+                    <p class="lead"><%= item.category %></p>
+                  </td>
+                  <td>
+                    <p class="lead"><%= item.status %></p>
+                  </td>
+                </tr>
+              <% } %>
+            <% }); %>
+          <% } else { %>
+            <tr>
+              <td colspan="3">
+                <p class="lead">No item in your watch list</p>
+              </td>
+            </tr>
+          <% }; %>
+        </tbody>
+      </table>
+      <hr class="my-4">
+      <% if (trades.length) { %>
+        <p class="lead"><strong>You have the following pokemons:</strong></p>
+        <div class="d-flex flex-wrap justify-content-start">
+            <% trades.forEach(trade => { %>
+                <a href="/trades/<%= trade.id %>"><p class="lead m-2"><%= trade.pokemon %></p></a>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p class="lead">You do not have any pokemons.</p>
+    <% } %>    
+      <button class="btn btn-warning"><a href="/trades">Explore more</a></button>
+    </div>
+  </div>
+<%- include('../partials/footer.ejs') %>

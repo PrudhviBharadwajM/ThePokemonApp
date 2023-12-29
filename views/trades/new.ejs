@@ -1,0 +1,62 @@
+<%- include('../partials/header.ejs') %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container content">
+        <form action='/trades' method='POST' enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="category" class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-10">
+                    <select required id="category" name="category" class="form-control">
+                        <% for(var i=0; i<values.length; i++) { %>
+                            <option value="<%= values[i].value %>">
+                                <%= values[i].label %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pokemon" class="col-sm-2 col-form-label">Pokemon Name</label>
+                <div class="col-sm-10">
+                    <input type="text" required class="form-control" id="pokemon" name="pokemon" placeholder="Name of the pokemon">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="category" class="col-sm-2 col-form-label">Status</label>
+                <div class="col-sm-10">
+                    <select required id="status" name="status" class="form-control">
+                        <% for(var i=0; i<status.length; i++) { %>
+                            <option value="<%= status[i].value %>">
+                                <%= status[i].label %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="content" class="col-sm-2 col-form-label">Pokemon Information</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" required id="content" name="content" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="image" class="col-sm-2 col-form-label">Image</label>
+                <div class="col-sm-10">
+                    <input type="file" required class="form-control" id="image" name="image" placeholder="Image URL">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="text-center">
+                        <div class="btn-group">
+                            <button class="btn btn-warning" type="submit">Create</button> &nbsp; &nbsp;
+                            <a href="/trades" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<%- include('../partials/footer.ejs') %>

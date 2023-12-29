@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+<div class="jumbotron">
+  <h2 class="lead tradelead">Please select any of your below pokemon to exchange.</h2>
+  <% if(pokemons.length >0) {%>
+  <div class="container-fluid">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% pokemons.forEach(function(pokemon) { %>
+        <tr>
+          <td><img src="<%= pokemon.image %>" alt="<%= pokemon.pokemon %>" class="pokemons" /></td>
+          <td><a href="/trades/<%=pokemon._id %>"><%= pokemon.pokemon %></a></td>
+          <td><%= pokemon.category %></td>
+          <td><%= pokemon.status %></td>
+          <td>
+            <% if(pokemon.status === 'Available') {%>
+            <form action="/trades/<%=pokemon._id %>/tradepokemon" method="GET">
+              <button class="btn btn-warning">Exchange</button>
+            </form>
+            <%}%>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+  <%} else {%>
+  <p class="lead">There are no pokemons to display.</p>
+  <%}%>
+</div>
+<%- include('../partials/footer.ejs') %>

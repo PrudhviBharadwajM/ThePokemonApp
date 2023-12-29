@@ -1,0 +1,138 @@
+.body {
+    padding-top: 70px;
+}
+
+.headerpoke {
+    font-size: 90%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.headertext {
+    font-size: 120%;
+}
+
+/* footer{
+    position: fixed;
+} */
+
+.footertext {
+    color: white;
+}
+
+.jumbo {
+    color: #fbcc21 !important;
+}
+
+.pokemons {
+    height: 50px;
+    width: 50px;
+}
+
+.fixed-top {
+    position: fixed !important;
+    top: 104px !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 1030 !important;
+}
+
+.tradelead {
+    font-size: 1.65rem;
+}
+
+.tradepageimg {
+    width: 300px;
+    height: 300px;
+}
+
+.thunder {
+    width: 40px;
+    height: 35px;
+}
+
+.runningpika {
+    height: 60px;
+    width: 80px
+}
+
+.hoho {
+    height: 30px;
+    width: 30px;
+}
+
+.trade-item {
+    display: inline-block;
+}
+
+.trade-item+.trade-item {
+    margin-left: 20px;
+}
+
+.paddingTB60 {
+    padding: 60px 0px 60px 0px;
+}
+
+.gray-bg {
+    background: #F1F1F1 !important;
+}
+
+.about-title h1 {
+    color: #535353;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.about-title span {
+    color: #AF0808;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.about-title h3 {
+    color: #535353;
+    font-size: 23px;
+    margin-bottom: 24px;
+}
+
+.about-title p {
+    color: #7a7a7a;
+    line-height: 1.8;
+    margin: 0 0 15px;
+}
+
+.about-paddingB {
+    padding-bottom: 12px;
+}
+
+.about-img {
+    padding-left: 57px;
+}
+
+.img-brand {
+    height: 4rem;
+    object-fit: contain;
+  }
+
+  .success {
+    background: rgba(108, 192, 112, 0.7);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 159px !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 1030 !important;
+  }
+  
+  .error {
+    background: rgba(255, 102, 51, 0.7);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 159px !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 1030 !important;
+  }
