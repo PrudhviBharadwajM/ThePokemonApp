@@ -12,6 +12,9 @@ const userRoutes = require('./routes/userRoutes');
 // create express app
 const app = express();
 
+
+// this isd a test comment
+
 // app configuration
 let port = 7000;
 let host = 'localhost';
