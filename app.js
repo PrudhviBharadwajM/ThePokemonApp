@@ -13,7 +13,7 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 
-// this isd a test comment
+// this is a test comment
 
 // app configuration
 let port = 7000;
